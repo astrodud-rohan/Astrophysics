@@ -1,0 +1,4 @@
+model,roc_auc
+random_forest,0.9583499999999999
+gradient_boosting,0.956325
+bls_power_baseline,0.49055000000000004
