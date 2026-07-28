@@ -1,0 +1,3 @@
+model,accuracy
+random_forest_cas,0.935361216730038
+cnn_raw_pixels,0.9771863117870723
