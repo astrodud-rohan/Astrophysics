@@ -11,8 +11,6 @@ def code(s):
  
 md("""# Gravitational Wave Detection & Parameter Estimation (GW150914-like)
  
-**Project 3 of 5 — Astrophysics Portfolio**
- 
 ## Data disclosure
  
 What **is** real and research-grade here: the waveform model (`IMRPhenomD`, generated via `pycbc` —
@@ -42,14 +40,14 @@ This is documented, not hidden — see `src/reference_events.py`.
 """)
  
 code("""import sys
-sys.path.insert(0, 'src')
+sys.path.insert(0, '../src')
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 from IPython.display import Image, display
  
-DATA_DIR = 'data'
-FIG_DIR = 'figures'
+DATA_DIR = '../data'
+FIG_DIR = '../figures'
 plt.rcParams.update({'figure.dpi': 100})
 """)
  
@@ -139,7 +137,7 @@ mass2 more tightly constrained downward -- reflecting the chirp-mass/mass-ratio 
 mirrors the real published GW150914 posterior shape (m1 = 36 +5/-4, m2 = 29 +4/-4 Msun,
 Abbott et al. 2016).""")
  
-md("""## 6. Summary & interview talking points
+md("""## 6. Summary
  
 1. **Detection and inference are distinct pipeline stages** — matched filtering with the *true*
    template gives the cleanest possible SNR; a real search must scan a template bank not knowing
@@ -158,5 +156,5 @@ md("""## 6. Summary & interview talking points
 """)
  
 nb['cells'] = cells
-nbf.write(nb, 'notebooks/gw_detection_pe.ipynb')
+nbf.write(nb, '../notebooks/gw_detection_pe.ipynb')
 print("Notebook written.")
