@@ -11,8 +11,6 @@ def code(s):
  
 md("""# Stellar Classification & HR Diagram from a Gaia-like Catalog
  
-**Project 2 of 5 — Astrophysics Portfolio**
- 
 ## Data disclosure
  
 This notebook uses a **synthetic Gaia-like catalog**. To keep the analysis scientifically
@@ -140,7 +138,7 @@ md("### Confusion matrix: true population vs. GMM-recovered cluster")
 code("""display(Image(f'{FIG_DIR}/05_confusion_matrix.png'))
 """)
  
-md("""## 6. Summary & interview talking points
+md("""## 6. Summary
  
 1. **Kinematic clustering (proper motion + parallax) can recover open cluster membership with
    essentially perfect purity/completeness — but only when the cluster's motion is kinematically
