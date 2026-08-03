@@ -11,12 +11,9 @@ def code(s):
  
 md("""# Exoplanet Transit Detection & Vetting: BLS Search + ML Classification
  
-**Project 1 of 5 — Astrophysics Portfolio**
- 
 ## Data disclosure
  
-All light curves in this notebook are **synthetic**, generated in this sandbox because live access
-to MAST / the NASA Exoplanet Archive is not available here. They are not arbitrary noise, though:
+All light curves in this notebook are **synthetic**. They are not arbitrary noise, though:
 every injected signal is **anchored to real, published system parameters** (Kepler-10b, Kepler-90b/i,
 TRAPPIST-1b/e, Kepler-452b, HAT-P-7b for planets; realistic grazing/diluted/background eclipsing-binary
 archetypes for false positives — see `src/reference_systems.py` for exact sourcing). Noise is scaled to
@@ -139,11 +136,10 @@ md("### Confusion matrices")
 code("""display(Image(f'{FIG_DIR}/05_confusion_matrices.png'))
 """)
  
-md("""## 6. Summary & interview talking points
+md("""## 6. Summary
  
 1. **BLS detection and ML vetting are two separate stages** — BLS finds candidate periodic dips; ML
-   vetting decides which candidates are astrophysically real planets vs. false positives. Conflating
-   the two (i.e., trusting BLS power/SNR as a final answer) is a common naive mistake.
+   vetting decides which candidates are astrophysically real planets vs. false positives.
 2. **Odd/even depth mismatch and depth-to-noise ratio are the features that do the real
    discriminating work**, not just raw detection strength — this mirrors real published vetting
    metrics (Coughlin et al. 2016 Robovetter).
@@ -151,9 +147,7 @@ md("""## 6. Summary & interview talking points
    folded curves (ROC-AUC 0.83) here** — a legitimate, defensible empirical finding for this dataset
    size, and consistent with why NASA's actual production system (Robovetter) is feature-based.
 4. **Injection-recovery methodology**: the simulation-based approach used throughout this notebook is
-   the same technique real pipelines use to validate detection efficiency, even though this
-   notebook's data is synthetic due to sandbox network constraints (no live MAST/NASA Exoplanet
-   Archive access here).
+   the same technique real pipelines use to validate detection efficiency.
 """)
  
 nb['cells'] = cells
