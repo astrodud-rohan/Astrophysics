@@ -11,13 +11,10 @@ def code(s):
  
 md("""# Pulsar Candidate Identification: Real vs. RFI on the HTRU2 Dataset
  
-**Project 5 of 5 — Astrophysics Portfolio**
- 
 ## Data disclosure — this project uses REAL survey data
  
-This project uses **genuinely real data**: the HTRU2 dataset, 17,898 real pulsar
-candidates from the actual High Time Resolution Universe Survey (South), conducted with the Parkes
-radio telescope.
+The HTRU2 dataset, 17,898 real pulsarn candidates from the actual 
+High Time Resolution Universe Survey (South), conducted with the Parkes radio telescope.
  
 The dataset's own creator, **Dr. Rob Lyon**
 (University of Manchester, Jodrell Bank Centre for Astrophysics), hosts the original data in his public
@@ -129,16 +126,14 @@ legitimate empirical answer to a real methodological question in the pulsar-clas
 additional feature engineering beyond the original 8 features does pay off, though the original 8
 already capture the large majority of the discriminating signal.""")
  
-md("""## 6. Summary & interview talking points
+md("""## 6. Summary
  
-1. **This is the one project in the portfolio built on genuinely real survey data** — 17,898 real
-   pulsar candidates from the actual HTRU-S survey, sourced directly from the dataset creator's own
-   repository after confirming UCI/Kaggle/ATNF were unreachable from this sandbox.
+1. 17,898 real pulsar candidates from the actual HTRU-S survey, sourced directly from the dataset 
+   creator's own repository.
 2. **Accuracy is the wrong metric for this problem** — with a 9.9:1 imbalance, a trivial classifier
-   already scores ~91%. ROC-AUC, PR-AUC, and per-class precision/recall are what actually matter, and
-   being able to say why is a core competency for any real vetting-pipeline work.
+   already scores ~91%. ROC-AUC, PR-AUC, and per-class precision/recall are what actually matter.
 3. **Feature importance matches the real published result**: pulse-profile kurtosis dominates, not
-   DM-SNR statistics — this is a genuine, verifiable finding, not a coincidence of this particular run.
+   DM-SNR statistics.
 4. **Precision/recall trade-off has a real operational interpretation** tied to telescope follow-up
    time constraints — not just an abstract ML tuning knob.
 5. **Richer feature engineering has a measurable, quantified payoff** here (30 vs. 8 features) — a
@@ -146,5 +141,5 @@ md("""## 6. Summary & interview talking points
 """)
  
 nb['cells'] = cells
-nbf.write(nb, 'notebooks/pulsar_identification.ipynb')
+nbf.write(nb, '../notebooks/pulsar_identification.ipynb')
 print("Notebook written.")
