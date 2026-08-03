@@ -11,8 +11,6 @@ def code(s):
  
 md("""# Galaxy Morphology Classification: Classical CAS/Gini-M20 Features vs. CNN
  
-**Project 4 of 5 — Astrophysics Portfolio**
- 
 ## Data disclosure
  
 Images here are **procedurally generated** from real, documented structural models: Sersic light
@@ -88,10 +86,9 @@ code("""display(Image(f'{FIG_DIR}/03_feature_importance.png'))
 """)
  
 md("""**Honest finding:** concentration and M20 dominate (73% of total importance combined), while
-asymmetry contributes very little here. This is a real methodological limitation worth naming rather
-than hiding: asymmetry is computed as a pixel-difference statistic and is more sensitive to the exact
-noise realization and aperture choice than concentration/M20 are, at the noise levels used in this
-simulation. Real CAS studies also report asymmetry as often the noisiest of the three CAS statistics
+asymmetry contributes very little here. Asymmetry is computed as a pixel-difference statistic and is more 
+sensitive to the exact noise realization and aperture choice than concentration/M20 are, at the noise levels 
+used in this simulation. Real CAS studies also report asymmetry as often the noisiest of the three CAS statistics
 in practice, particularly for lower signal-to-noise imaging.""")
  
 md("## 5. Model comparison: classical features vs. CNN")
@@ -105,24 +102,21 @@ code("""display(Image(f'{FIG_DIR}/04_confusion_matrices.png'))
 code("""display(Image(f'{FIG_DIR}/05_cnn_training_curve.png'))
 """)
  
-md("""## 6. Summary & interview talking points
+md("""## 6. Summary
  
 1. **CNN (96.6%) outperforms the classical CAS/Gini-M20 Random Forest (93.2%) here** — consistent with
    the real finding in Dieleman et al. 2015, where a CNN on raw Galaxy Zoo images beat hand-engineered
-   morphology features. Notably, this is the *opposite* result from Project 1 (exoplanet vetting), where
-   classical features beat a CNN — a good opportunity to discuss *when* each approach wins rather than
-   defaulting to "deep learning is always better."
+   morphology features.
 2. **M20 does real, documented work here**: it was specifically designed (Lotz et al. 2004) to catch
    multi-nucleus/merger signatures that concentration alone misses, and that's exactly the feature that
    shows the strongest separation for the merger class in this simulation.
-3. **Not every classical feature contributes equally** — asymmetry is noisy here, and saying so
-   explicitly is more credible than presenting a feature-importance chart without comment.
+3. **Not every classical feature contributes equally** — asymmetry is noisy here.
 4. **Aperture/centroid methodology matters**: an earlier version of this analysis computed CAS
    statistics using the geometric image center and the full frame, which swamped the asymmetry signal
    with background noise — switching to a centroid-based, aperture-restricted computation (matching
-   real CAS methodology) is the kind of debugging story worth being able to walk through.
+   real CAS methodology) is the debug story here.
 """)
  
 nb['cells'] = cells
-nbf.write(nb, 'notebooks/galaxy_morphology.ipynb')
+nbf.write(nb, '../notebooks/galaxy_morphology.ipynb')
 print("Notebook written.")
